@@ -78,7 +78,26 @@ namespace ES.Tests
             var result = client.DeleteIndex("test");
 
             Assert.AreEqual((int)HttpStatusCode.BadRequest, result.ConnectionStatus.HttpStatusCode, "Received {0} response from server - Expected 400", result.ConnectionStatus.HttpStatusCode);
-            Assert.IsFalse(result.Acknowledged, "Creation of duplicate index was acknowledged.");
+            Assert.IsFalse(result.Acknowledged, "Failed to delete the test index");
+        }
+
+        [Test]
+        public void DeleteIndex_NoneExist()
+        {
+            var client = ConnectionHelper.Client;
+
+            if (client.IndexExists("test").Exists)
+            {
+                var delete = client.DeleteIndex("test");
+
+                Assert.AreEqual((int)HttpStatusCode.OK, delete.ConnectionStatus.HttpStatusCode, "Received {0} response from server", delete.ConnectionStatus.HttpStatusCode);
+                Assert.IsTrue(delete.Acknowledged, "Failed to delete the test index");
+            }
+
+            var result = client.DeleteIndex("test");
+
+            Assert.AreEqual((int)HttpStatusCode.NotFound, result.ConnectionStatus.HttpStatusCode, "Received {0} response from server - Expected 404", result.ConnectionStatus.HttpStatusCode);
+            Assert.IsFalse(result.Acknowledged, "Received Acknowledge when deleting non-existant index");
         }
     }
 }

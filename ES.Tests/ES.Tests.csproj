@@ -35,6 +35,9 @@
     <Reference Include="Elasticsearch.Net">
       <HintPath>..\packages\Elasticsearch.Net.1.4.3\lib\net45\Elasticsearch.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Foundation.ObjectHydrator">
+      <HintPath>..\packages\objecthydrator.1.1.0\lib\.NetFramework 4.0\Foundation.ObjectHydrator.dll</HintPath>
+    </Reference>
     <Reference Include="Nest">
       <HintPath>..\packages\NEST.1.4.3\lib\net45\Nest.dll</HintPath>
     </Reference>
@@ -57,14 +60,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\IndexItem.cs" />
+    <Compile Include="DataTests.cs" />
     <Compile Include="Helpers\ConnectionHelper.cs" />
     <Compile Include="ConnectionTests.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="IndexTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
