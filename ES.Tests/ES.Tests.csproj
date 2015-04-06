@@ -64,9 +64,14 @@
     <Compile Include="DataTests.cs" />
     <Compile Include="Helpers\ConnectionHelper.cs" />
     <Compile Include="ConnectionTests.cs" />
+    <Compile Include="Helpers\DataHelper.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="IndexTests.cs" />
+    <Compile Include="InsertTests.cs">
+      <DependentUpon>DataTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
