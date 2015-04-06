@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\IndexItem.cs" />
+    <Compile Include="BusinessObjects\StateProvince.cs" />
     <Compile Include="DataTests.cs" />
     <Compile Include="Helpers\ConnectionHelper.cs" />
     <Compile Include="ConnectionTests.cs" />
