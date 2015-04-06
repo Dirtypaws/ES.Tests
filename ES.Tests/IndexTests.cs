@@ -77,8 +77,8 @@ namespace ES.Tests
 
             var result = client.DeleteIndex("test");
 
-            Assert.AreEqual((int)HttpStatusCode.BadRequest, result.ConnectionStatus.HttpStatusCode, "Received {0} response from server - Expected 400", result.ConnectionStatus.HttpStatusCode);
-            Assert.IsFalse(result.Acknowledged, "Failed to delete the test index");
+            Assert.AreEqual((int)HttpStatusCode.OK, result.ConnectionStatus.HttpStatusCode, "Received {0} response from server", result.ConnectionStatus.HttpStatusCode);
+            Assert.IsTrue(result.Acknowledged, "Failed to delete the test index");
         }
 
         [Test]

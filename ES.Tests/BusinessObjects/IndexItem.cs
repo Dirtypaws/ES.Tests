@@ -14,6 +14,12 @@ namespace ES.Tests.BusinessObjects
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-
+        public bool Equals(IndexItem obj)
+        {
+            return (Id == obj.Id) &&
+                   (SeedId == obj.SeedId) &&
+                   (FirstName == obj.FirstName) &&
+                   (LastName == obj.LastName);
+        }
     }
 }

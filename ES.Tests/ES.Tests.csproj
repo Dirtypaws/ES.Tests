@@ -71,7 +71,9 @@
       <DependentUpon>DataTests.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchTests.cs" />
+    <Compile Include="SearchTests.cs">
+      <DependentUpon>DataTests.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
